@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { setAuthedUser } from "../../actions/authedUser";
+
 import { Card, Button, Select, Divider } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
 const { Option } = Select;
@@ -18,7 +20,7 @@ export class LoginPage extends Component {
   };
 
   handleClick = (e) => {
-    console.log(`selected ${this.state.selected}`);
+    this.props.dispatch(setAuthedUser(this.state.selected));
   };
 
   componentDidMount() {
