@@ -1,20 +1,46 @@
 import React, { Component } from "react";
-import { Card, Button } from "antd";
+import { Card, Button, Select, Divider } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
 
+const { Option } = Select;
+
 export class LoginPage extends Component {
+  handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
   render() {
     return (
       <div>
         <Card
           title={<CardTitle />}
-          style={{ textAlign: "center", margin: "15px" }}
-          headStyle={{ backgroundColor: "#f3f4f5" }}
+          style={{
+            textAlign: "center",
+            margin: "15px",
+            border: "1px solid #d4d4d5",
+          }}
+          headStyle={{
+            backgroundColor: "#f3f4f5",
+            borderBottom: "1px solid #d4d4d5",
+          }}
         >
           <img src="/logo192.png" alt="logo" />
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
+
+          <h1>Sign In</h1>
+          <Divider />
+
+          <Select
+            style={{ width: "100%", marginBottom: "20px" }}
+            onChange={this.handleChange}
+            placeholder="Select your ID"
+            size="large"
+          >
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+
+            <Option value="Yiminghe">yiminghe</Option>
+          </Select>
+
           <Button
             type="primary"
             block
