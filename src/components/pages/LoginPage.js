@@ -1,15 +1,32 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import { Card, Button, Select, Divider } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
-
 const { Option } = Select;
 
 export class LoginPage extends Component {
-  handleChange(value) {
-    console.log(`selected ${value}`);
+  state = {
+    isDisabled: true,
+    selected: "",
+  };
+
+  handleChange = (value) => {
+    this.setState({ selected: value }, () => {
+      this.setState({ isDisabled: false });
+    });
+  };
+
+  handleClick = (e) => {
+    console.log(`selected ${this.state.selected}`);
+  };
+
+  componentDidMount() {
+    console.log("props", this.props);
   }
 
   render() {
+    const { users } = this.props;
     return (
       <div>
         <Card
@@ -27,6 +44,7 @@ export class LoginPage extends Component {
           <img src="/logo192.png" alt="logo" />
 
           <h1>Sign In</h1>
+
           <Divider />
 
           <Select
@@ -35,10 +53,11 @@ export class LoginPage extends Component {
             placeholder="Select your ID"
             size="large"
           >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-
-            <Option value="Yiminghe">yiminghe</Option>
+            {users.map((user) => (
+              <Option key={user} value={user} style={{ fontSize: "1rem" }}>
+                {user}
+              </Option>
+            ))}
           </Select>
 
           <Button
@@ -46,6 +65,8 @@ export class LoginPage extends Component {
             block
             icon={<LoginOutlined />}
             style={{ height: "40px", fontSize: "1rem" }}
+            disabled={this.state.isDisabled}
+            onClick={this.handleClick}
           >
             Login
           </Button>
@@ -55,8 +76,6 @@ export class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
-
 function CardTitle() {
   return (
     <>
@@ -65,3 +84,11 @@ function CardTitle() {
     </>
   );
 }
+
+function mapStateToProps({ users }) {
+  return {
+    users: Object.keys(users),
+  };
+}
+
+export default connect(mapStateToProps)(LoginPage);
