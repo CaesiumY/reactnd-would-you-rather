@@ -7,7 +7,6 @@ import MyLayout from "./components/layout/MyLayout";
 import NavBar from "./components/NavBar";
 
 function App(props) {
-  console.log(props);
   return (
     <HashRouter>
       <div className="App">

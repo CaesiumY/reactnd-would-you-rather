@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+
+import { setAuthedUser } from "../actions/authedUser";
+
 import { Menu } from "antd";
 import {
   LogoutOutlined,
@@ -18,10 +21,13 @@ export class NavBar extends Component {
   };
 
   handleClick = (e) => {
-    console.log("click ", e);
     this.setState({
       current: e.key,
     });
+  };
+
+  handleLogout = (e) => {
+    this.props.dispatch(setAuthedUser(null));
   };
 
   render() {
@@ -53,6 +59,7 @@ export class NavBar extends Component {
             key="logout"
             icon={<LogoutOutlined />}
             style={{ marginLeft: "auto" }}
+            onClick={this.handleLogout}
           >
             Logout
           </Menu.Item>
