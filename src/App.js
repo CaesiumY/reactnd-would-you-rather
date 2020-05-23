@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
+import LoadingBar from "react-redux-loading-bar";
 import LoginPage from "./components/pages/LoginPage";
 import MyLayout from "./components/layout/MyLayout";
 
@@ -9,6 +10,7 @@ function App(props) {
   return (
     <HashRouter>
       <div className="App">
+        <LoadingBar style={{ backgroundColor: "skyblue", height: "5px" }} />
         <MyLayout>
           {props.authedUser ? (
             <p>hi</p>
