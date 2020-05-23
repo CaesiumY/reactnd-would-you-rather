@@ -23,10 +23,6 @@ export class LoginPage extends Component {
     this.props.dispatch(setAuthedUser(this.state.selected));
   };
 
-  componentDidMount() {
-    console.log("props", this.props);
-  }
-
   render() {
     const { users } = this.props;
     return (
