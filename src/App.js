@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
 import LoginPage from "./components/pages/LoginPage";
 import MyLayout from "./components/layout/MyLayout";
+import NavBar from "./components/NavBar";
 
 function App(props) {
   console.log(props);
@@ -11,9 +12,10 @@ function App(props) {
     <HashRouter>
       <div className="App">
         <LoadingBar style={{ backgroundColor: "skyblue", height: "5px" }} />
+        {/* {props.authedUser && <NavBar />} */}
         <MyLayout>
           {props.authedUser ? (
-            <p>hi</p>
+            <NavBar />
           ) : (
             <Route path="/" component={LoginPage} />
           )}
