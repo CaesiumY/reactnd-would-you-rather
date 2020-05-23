@@ -5,16 +5,19 @@ import LoadingBar from "react-redux-loading-bar";
 import LoginPage from "./components/pages/LoginPage";
 import MyLayout from "./components/layout/MyLayout";
 import NavBar from "./components/NavBar";
+import LeaderBoard from "./components/pages/LeaderBoard";
 
 function App(props) {
   return (
     <HashRouter>
       <div className="App">
         <LoadingBar style={{ backgroundColor: "skyblue", height: "5px" }} />
-        {/* {props.authedUser && <NavBar />} */}
         <MyLayout>
           {props.authedUser ? (
-            <NavBar />
+            <>
+              <NavBar />
+              <Route path="/leaderboard" component={LeaderBoard} />
+            </>
           ) : (
             <Route path="/" component={LoginPage} />
           )}
