@@ -61,7 +61,7 @@ export class LeaderBoard extends Component {
                 margin: "10px 0 0 0",
               }}
             >
-              Score
+              Total
             </h2>
             <Card.Grid
               hoverable={false}
