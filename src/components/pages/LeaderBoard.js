@@ -11,60 +11,79 @@ export class LeaderBoard extends Component {
   render() {
     return (
       <div style={{ margin: "30px 15px" }}>
-        <Card
-          style={{ width: "100%", border: "1px solid #d4d4d5" }}
-          headStyle={{
-            borderBottom: "1px solid #d4d4d5",
-          }}
-          title={
-            <CardTitle
-              colorSet={this.state.colorSet}
-              title="sample"
-            ></CardTitle>
-          }
-        >
-          <Card.Grid
-            hoverable={false}
-            style={{ width: "25%", boxShadow: "none" }}
-          >
-            <Avatar
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              size={84}
-              style={{ margin: "0 auto" }}
-            />
-          </Card.Grid>
-
-          <Card.Grid
-            hoverable={false}
-            style={{ width: "50%", boxShadow: "none" }}
-          >
-            <div>
-              Answered Questions : <span>5</span>
-            </div>
-            <Divider />
-            <div>
-              Created Questions : <span>5</span>
-            </div>
-          </Card.Grid>
-          <h2 style={{ textAlign: "center" }}>Score</h2>
-          <Card.Grid
-            hoverable={false}
+        {this.props.leaderBoardData.map((user, index) => (
+          <Card
+            key={user.id}
             style={{
-              width: "25%",
-              boxShadow: "none",
-              textAlign: "center",
-              padding: 0,
+              width: "100%",
+              border: "1px solid #d4d4d5",
+              marginBottom: "20px",
             }}
+            headStyle={{
+              borderBottom: "1px solid #d4d4d5",
+            }}
+            title={
+              <CardTitle
+                colorSet={this.state.colorSet}
+                title={user.name}
+                rank={index}
+              ></CardTitle>
+            }
           >
-            <span
+            <Card.Grid
+              hoverable={false}
+              style={{ width: "25%", boxShadow: "none" }}
+            >
+              <Avatar
+                src={user.avatarURL}
+                size={84}
+                style={{ margin: "0 auto" }}
+              />
+            </Card.Grid>
+
+            <Card.Grid
+              hoverable={false}
+              style={{ width: "50%", boxShadow: "none" }}
+            >
+              <div style={{ fontSize: "1rem" }}>
+                Answered Questions :{" "}
+                <span style={{ fontWeight: "bold" }}>{user.answerCount}</span>
+              </div>
+              <Divider />
+              <div style={{ fontSize: "1rem" }}>
+                Created Questions :{" "}
+                <span style={{ fontWeight: "bold" }}>{user.questionCount}</span>
+              </div>
+            </Card.Grid>
+            <h2
               style={{
-                fontSize: "3rem",
+                textAlign: "center",
+                margin: "10px 0 0 0",
               }}
             >
-              6
-            </span>
-          </Card.Grid>
-        </Card>
+              Score
+            </h2>
+            <Card.Grid
+              hoverable={false}
+              style={{
+                width: "25%",
+                boxShadow: "none",
+                textAlign: "center",
+                padding: 0,
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  color: this.state.colorSet[index],
+                }}
+              >
+                {user.totalCount}
+              </span>
+            </Card.Grid>
+          </Card>
+        ))}
       </div>
     );
   }
@@ -74,7 +93,7 @@ function CardTitle(props) {
   return (
     <>
       <TrophyTwoTone
-        twoToneColor={props.colorSet[0]}
+        twoToneColor={props.colorSet[props.rank]}
         style={{ fontSize: "2rem" }}
       />
       <h2 style={{ margin: "0 1rem", display: "inline" }}>{props.title}</h2>
