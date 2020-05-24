@@ -12,18 +12,13 @@ import {
   AppstoreAddOutlined,
   FundFilled,
 } from "@ant-design/icons";
+import { setPage } from "../actions/currentPage";
 
 const { SubMenu } = Menu;
 
 export class NavBar extends Component {
-  state = {
-    current: "home",
-  };
-
   handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
+    this.props.dispatch(setPage(e.key));
   };
 
   handleLogout = (e) => {
@@ -34,7 +29,7 @@ export class NavBar extends Component {
     return (
       <Menu
         onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
+        selectedKeys={[this.props.currentPage]}
         mode="horizontal"
         style={{ fontWeight: "bold" }}
       >
@@ -69,9 +64,10 @@ export class NavBar extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, users, currentPage }) {
   return {
     username: users[authedUser].name,
+    currentPage,
   };
 }
 

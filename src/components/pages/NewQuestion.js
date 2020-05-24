@@ -4,11 +4,13 @@ import { Redirect } from "react-router-dom";
 import { Card, Input, Divider, Button } from "antd";
 import { FormOutlined } from "@ant-design/icons";
 import { handleAddQuestion } from "../../actions/questions";
+import { setPage } from "../../actions/currentPage";
 
 export class NewQuestion extends Component {
   state = {
     option1: "",
     option2: "",
+    toHome: false,
   };
 
   handleChange = (e) => {
@@ -18,17 +20,25 @@ export class NewQuestion extends Component {
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     const { option1, option2 } = this.state;
-    this.props.dispatch(handleAddQuestion(option1, option2));
+    await this.props.dispatch(handleAddQuestion(option1, option2));
     this.setState({
       option1: "",
       option2: "",
+      toHome: true,
     });
+    this.props.dispatch(setPage("home"));
   };
 
   render() {
-    const isDisabled = this.state.option1 === "" || this.state.option2 === "";
+    const { option1, option2, toHome } = this.state;
+    const isDisabled = option1 === "" || option2 === "";
+
+    if (toHome) {
+      return <Redirect to="/"></Redirect>;
+    }
+
     return (
       <div style={{ margin: "30px 15px" }}>
         <Card
