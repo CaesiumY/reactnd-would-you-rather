@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { Card, Input, Divider, Button } from "antd";
 import { FormOutlined } from "@ant-design/icons";
+import { handleAddQuestion } from "../../actions/questions";
 
 export class NewQuestion extends Component {
   state = {
@@ -15,7 +18,17 @@ export class NewQuestion extends Component {
     });
   };
 
+  handleSubmit = (e) => {
+    const { option1, option2 } = this.state;
+    this.props.dispatch(handleAddQuestion(option1, option2));
+    this.setState({
+      option1: "",
+      option2: "",
+    });
+  };
+
   render() {
+    const isDisabled = this.state.option1 === "" || this.state.option2 === "";
     return (
       <div style={{ margin: "30px 15px" }}>
         <Card
@@ -55,6 +68,8 @@ export class NewQuestion extends Component {
             icon={<FormOutlined />}
             size="large"
             style={{ marginTop: "20px" }}
+            disabled={isDisabled}
+            onClick={this.handleSubmit}
           >
             Submit
           </Button>
@@ -64,4 +79,4 @@ export class NewQuestion extends Component {
   }
 }
 
-export default NewQuestion;
+export default connect()(NewQuestion);
