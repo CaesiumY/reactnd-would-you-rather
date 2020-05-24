@@ -3,6 +3,7 @@ import { HashRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
 
+import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/LoginPage";
 import LeaderBoard from "./components/pages/LeaderBoard";
 import NewQuestion from "./components/pages/NewQuestion";
@@ -18,6 +19,7 @@ function App(props) {
           {props.authedUser ? (
             <>
               <NavBar />
+              <Route path="/" exact component={HomePage} />
               <Route path="/add" component={NewQuestion} />
               <Route path="/leaderboard" component={LeaderBoard} />
             </>
