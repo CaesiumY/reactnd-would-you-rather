@@ -18,7 +18,7 @@ function App(props) {
           {props.authedUser ? (
             <>
               <NavBar />
-              <Route path="/new" component={NewQuestion} />
+              <Route path="/add" component={NewQuestion} />
               <Route path="/leaderboard" component={LeaderBoard} />
             </>
           ) : (

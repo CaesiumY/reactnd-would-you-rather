@@ -44,7 +44,7 @@ export class NavBar extends Component {
           </NavLink>
         </Menu.Item>
         <Menu.Item icon={<AppstoreAddOutlined />} key="new">
-          <NavLink to="/new" exact>
+          <NavLink to="/add" exact>
             New Poll
           </NavLink>
         </Menu.Item>
