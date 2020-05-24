@@ -1,9 +1,89 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
+import { Card, Avatar, Button } from "antd";
+
+const tabListNoTitle = [
+  {
+    key: "Unanswered",
+    tab: "Unanswered",
+  },
+  {
+    key: "Answered",
+    tab: "Answered",
+  },
+];
 export class HomePage extends Component {
+  state = {
+    key: "Unanswered",
+  };
+
+  onTabChange = (key, type) => {
+    console.log(key, type);
+    this.setState({ [type]: key });
+  };
+
   render() {
-    return <div>home</div>;
+    return (
+      <div style={{ margin: "30px 0" }}>
+        <Card
+          style={{ width: "100%", border: "1px solid #d4d4d5" }}
+          tabList={tabListNoTitle}
+          activeTabKey={this.state.key}
+          onTabChange={(key) => {
+            this.onTabChange(key, "key");
+          }}
+        >
+          <Card
+            style={{
+              marginTop: 16,
+              border: "1px solid #d4d4d5",
+              borderTop: "3px solid skyblue",
+            }}
+            type="inner"
+            headStyle={{
+              backgroundColor: "#f3f4f5",
+              borderBottom: "1px solid #d4d4d5",
+            }}
+            title="Inner Card title"
+          >
+            <Card.Grid
+              hoverable={false}
+              style={{
+                width: "25%",
+                boxShadow: "none",
+              }}
+            >
+              <Avatar
+                src="https://reactnd-would-you-rather.netlify.app/images/avatars/lion.png"
+                size={96}
+                style={{ margin: "0 auto" }}
+              />
+            </Card.Grid>
+            <Card.Grid
+              hoverable={false}
+              style={{ width: "75%", boxShadow: "none" }}
+            >
+              <h2>Would you rather...</h2>
+              <div style={{ fontSize: "1rem" }}>write JavaScript or...</div>
+              <Button
+                type="primary"
+                block
+                shape="round"
+                style={{ marginTop: "15px" }}
+              >
+                Answer Poll
+              </Button>
+            </Card.Grid>
+          </Card>
+        </Card>
+      </div>
+    );
   }
 }
 
-export default HomePage;
+function mapStateToProps({ authedUser, users, questions }) {
+  return {};
+}
+
+export default connect(mapStateToProps)(HomePage);

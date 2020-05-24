@@ -17,6 +17,7 @@ export class LeaderBoard extends Component {
             style={{
               width: "100%",
               border: "1px solid #d4d4d5",
+              borderTop: `3px solid ${this.state.colorSet[index]}`,
               marginBottom: "20px",
             }}
             headStyle={{
