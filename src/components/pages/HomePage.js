@@ -83,7 +83,22 @@ export class HomePage extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }) {
-  return {};
+  const qid = Object.keys(users[authedUser].answers);
+  const answered = Object.values(questions)
+    .filter((q) => {
+      return qid.includes(q.id);
+    })
+    .sort((a, b) => b.timestamp - a.timestamp);
+  const unanswered = Object.values(questions)
+    .filter((q) => {
+      return !qid.includes(q.id);
+    })
+    .sort((a, b) => b.timestamp - a.timestamp);
+  return {
+    qid,
+    answered,
+    unanswered,
+  };
 }
 
 export default connect(mapStateToProps)(HomePage);
