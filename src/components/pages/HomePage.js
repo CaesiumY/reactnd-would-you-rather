@@ -38,9 +38,13 @@ export class HomePage extends Component {
           {this.state.key === "Unanswered" ? (
             <UnansweredTab
               unansweredData={this.props.unanswered}
+              users={this.props.users}
             ></UnansweredTab>
           ) : (
-            <AnsweredTab answeredData={this.props.answered}></AnsweredTab>
+            <AnsweredTab
+              answeredData={this.props.answered}
+              users={this.props.users}
+            ></AnsweredTab>
           )}
         </Card>
       </div>
@@ -64,6 +68,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     qid,
     answered,
     unanswered,
+    users,
   };
 }
 
