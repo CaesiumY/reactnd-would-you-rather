@@ -13,8 +13,8 @@ export function hadleInitialData() {
     return getInitialData().then(({ users, questions }) => {
       dispatch(receiveUsers(users));
       // FIXME - after TEST, it should be fixed.
-      dispatch(setAuthedUser(authedUser));
       dispatch(receiveQuestions(questions));
+      dispatch(setAuthedUser(authedUser));
       dispatch(hideLoading());
     });
   };
