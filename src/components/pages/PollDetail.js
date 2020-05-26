@@ -1,24 +1,38 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import AvatarInCard from "../AvatarInCard";
 import { Card, Radio, Button } from "antd";
 
 export class PollDetail extends Component {
   state = {
     value: "",
+    toHome: false,
   };
 
   onChange = (e) => {
-    console.log("radio checked", e.target.value);
     this.setState({
       value: e.target.value,
     });
   };
 
+  handleSubmit = (e) => {
+    const { value } = this.state;
+    console.log("value:", value);
+    this.setState({
+      toHome: true,
+    });
+  };
+
   render() {
+    const { value, toHome } = this.state;
     const { question, users } = this.props;
     const { author, optionOne, optionTwo } = question;
+    const isDisabled = value === "";
+
+    if (toHome) {
+      return <Redirect to="/"></Redirect>;
+    }
 
     return (
       <Card
@@ -41,7 +55,7 @@ export class PollDetail extends Component {
         >
           <h2>Would you rather...</h2>
           <div style={{ fontSize: "1rem" }}>
-            <Radio.Group onChange={this.onChange} value={this.state.value}>
+            <Radio.Group onChange={this.onChange} value={value}>
               <Radio
                 value={1}
                 style={{ display: "block", height: "30px", lineHeight: "30px" }}
@@ -56,29 +70,36 @@ export class PollDetail extends Component {
               </Radio>
             </Radio.Group>
           </div>
-          <Link to={`/`}>
-            <Button
-              type="primary"
-              block
-              shape="round"
-              style={{ marginTop: "15px" }}
-            >
-              Answer
-            </Button>
-          </Link>
+          <Button
+            type="primary"
+            block
+            shape="round"
+            disabled={isDisabled}
+            style={{ marginTop: "15px" }}
+            onClick={this.handleSubmit}
+          >
+            Answer
+          </Button>
         </Card.Grid>
       </Card>
     );
   }
 }
 
-function mapStateToProps({ users, questions }, { location }) {
+function mapStateToProps({ users, questions, authedUser }, { location }) {
   const qid = location.pathname.split("/")[2];
   const question = questions[qid];
+  const isVoted = Object.keys(users[authedUser].answers).includes(qid);
+  const optionOneCount = question.optionOne.votes.length;
+  const optionTwoCount = question.optionTwo.votes.length;
+  const userVote = users[authedUser].answers[qid];
   return {
-    qid,
     question,
     users,
+    isVoted,
+    optionOneCount,
+    optionTwoCount,
+    userVote,
   };
 }
 
