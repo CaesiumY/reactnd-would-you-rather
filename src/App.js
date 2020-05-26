@@ -9,6 +9,7 @@ import LeaderBoard from "./components/pages/LeaderBoard";
 import NewQuestion from "./components/pages/NewQuestion";
 import MyLayout from "./components/layout/MyLayout";
 import NavBar from "./components/NavBar";
+import PollDetail from "./components/pages/PollDetail";
 
 function App(props) {
   return (
@@ -22,6 +23,7 @@ function App(props) {
               <Route path="/" exact component={HomePage} />
               <Route path="/add" component={NewQuestion} />
               <Route path="/leaderboard" component={LeaderBoard} />
+              <Route path="/questions/:question_id" component={PollDetail} />
             </>
           ) : (
             <Route path="/" component={LoginPage} />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Card, Button } from "antd";
 import AvatarInCard from "./AvatarInCard";
 
@@ -38,14 +39,16 @@ export class AnsweredTab extends Component {
               <div style={{ fontSize: "1rem" }}>
                 {data.optionOne.text} or...
               </div>
-              <Button
-                type="ghost"
-                block
-                shape="round"
-                style={{ marginTop: "15px" }}
-              >
-                Results
-              </Button>
+              <Link to={`/questions/${data.id}`}>
+                <Button
+                  type="ghost"
+                  block
+                  shape="round"
+                  style={{ marginTop: "15px" }}
+                >
+                  Results
+                </Button>
+              </Link>
             </Card.Grid>
           </Card>
         ))}
