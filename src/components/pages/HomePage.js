@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { Card, Avatar, Button } from "antd";
+import { Card, Button } from "antd";
+import AvatarInCard from "../AvatarInCard";
 
 const tabListNoTitle = [
   {
@@ -47,19 +48,7 @@ export class HomePage extends Component {
             }}
             title="Inner Card title"
           >
-            <Card.Grid
-              hoverable={false}
-              style={{
-                width: "25%",
-                boxShadow: "none",
-              }}
-            >
-              <Avatar
-                src="https://reactnd-would-you-rather.netlify.app/images/avatars/lion.png"
-                size={96}
-                style={{ margin: "0 auto" }}
-              />
-            </Card.Grid>
+            <AvatarInCard avatarURL="https://reactnd-would-you-rather.netlify.app/images/avatars/lion.png"></AvatarInCard>
             <Card.Grid
               hoverable={false}
               style={{ width: "75%", boxShadow: "none" }}

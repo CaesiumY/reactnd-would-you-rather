@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card, Avatar, Divider } from "antd";
+import { Card, Divider } from "antd";
 import { TrophyTwoTone } from "@ant-design/icons";
+import AvatarInCard from "../AvatarInCard";
 
 export class LeaderBoard extends Component {
   state = {
@@ -31,16 +32,7 @@ export class LeaderBoard extends Component {
               ></CardTitle>
             }
           >
-            <Card.Grid
-              hoverable={false}
-              style={{ width: "25%", boxShadow: "none" }}
-            >
-              <Avatar
-                src={user.avatarURL}
-                size={84}
-                style={{ margin: "0 auto" }}
-              />
-            </Card.Grid>
+            <AvatarInCard avatarURL={user.avatarURL}></AvatarInCard>
 
             <Card.Grid
               hoverable={false}
