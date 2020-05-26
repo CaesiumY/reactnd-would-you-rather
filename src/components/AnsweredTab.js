@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Card, Button } from "antd";
 import AvatarInCard from "./AvatarInCard";
 
 export class AnsweredTab extends Component {
-  //   static propTypes = {};
+  static propTypes = {
+    answeredData: PropTypes.array.isRequired,
+  };
 
   render() {
     return (

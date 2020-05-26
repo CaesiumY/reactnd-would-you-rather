@@ -21,7 +21,6 @@ export class HomePage extends Component {
   };
 
   onTabChange = (key, type) => {
-    console.log(key, type);
     this.setState({ [type]: key });
   };
 
@@ -37,9 +36,11 @@ export class HomePage extends Component {
           }}
         >
           {this.state.key === "Unanswered" ? (
-            <UnansweredTab></UnansweredTab>
+            <UnansweredTab
+              unansweredData={this.props.unanswered}
+            ></UnansweredTab>
           ) : (
-            <AnsweredTab></AnsweredTab>
+            <AnsweredTab answeredData={this.props.answered}></AnsweredTab>
           )}
         </Card>
       </div>
