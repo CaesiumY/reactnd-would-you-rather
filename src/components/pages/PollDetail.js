@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import AvatarInCard from "../AvatarInCard";
 import { Card, Radio, Button } from "antd";
+import CardGridLayout from "../layout/CardGridLayout";
 
 export class PollDetail extends Component {
   state = {
@@ -35,6 +36,9 @@ export class PollDetail extends Component {
     }
 
     return (
+      // <CardGridLayout avatarURL={users[author].avatarURL} data={question}>
+      //   hi
+      // </CardGridLayout>
       <Card
         style={{
           marginTop: 16,
@@ -54,22 +58,21 @@ export class PollDetail extends Component {
           style={{ width: "75%", boxShadow: "none" }}
         >
           <h2>Would you rather...</h2>
-          <div style={{ fontSize: "1rem" }}>
-            <Radio.Group onChange={this.onChange} value={value}>
-              <Radio
-                value={1}
-                style={{ display: "block", height: "30px", lineHeight: "30px" }}
-              >
-                {optionOne.text}
-              </Radio>
-              <Radio
-                value={2}
-                style={{ display: "block", height: "30px", lineHeight: "30px" }}
-              >
-                {optionTwo.text}
-              </Radio>
-            </Radio.Group>
-          </div>
+
+          <Radio.Group onChange={this.onChange} value={value}>
+            <Radio
+              value={1}
+              style={{ display: "block", height: "30px", lineHeight: "30px" }}
+            >
+              {optionOne.text}
+            </Radio>
+            <Radio
+              value={2}
+              style={{ display: "block", height: "30px", lineHeight: "30px" }}
+            >
+              {optionTwo.text}
+            </Radio>
+          </Radio.Group>
           <Button
             type="primary"
             block
