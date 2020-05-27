@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "antd";
 import AvatarInCard from "../AvatarInCard";
 
-function CardGridLayout(props) {
-  const { data, avatarURL, type } = props;
+function CardGridLayout({ data, avatarURL, type, children }) {
   return (
     <Card
       style={{
@@ -36,7 +35,7 @@ function CardGridLayout(props) {
             </Button>
           </Link>
         ) : (
-          ""
+          children
         )}
       </Card.Grid>
     </Card>
