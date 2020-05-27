@@ -25,6 +25,7 @@ export class LoginPage extends Component {
 
   render() {
     const { users } = this.props;
+    const { selected } = this.state;
     return (
       <div>
         <Card
@@ -39,7 +40,11 @@ export class LoginPage extends Component {
             borderBottom: "1px solid #d4d4d5",
           }}
         >
-          <img src="/logo192.png" alt="logo" />
+          <img
+            src={users[selected] ? users[selected].avatarURL : "/logo192.png"}
+            width="50%"
+            alt="logo"
+          />
 
           <h1>Sign In</h1>
 
@@ -51,7 +56,7 @@ export class LoginPage extends Component {
             placeholder="Select your ID"
             size="large"
           >
-            {users.map((user) => (
+            {Object.keys(users).map((user) => (
               <Option key={user} value={user} style={{ fontSize: "1rem" }}>
                 {user}
               </Option>
@@ -69,6 +74,16 @@ export class LoginPage extends Component {
             Login
           </Button>
         </Card>
+        <div style={{ textAlign: "center" }}>
+          Icons made by{" "}
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+            Freepik
+          </a>{" "}
+          from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </div>
       </div>
     );
   }
@@ -84,8 +99,11 @@ function CardTitle() {
 }
 
 function mapStateToProps({ users }) {
+  // const avatars = Object.values(users).map((user) => ({
+  //   [user.id]: user.avatarURL,
+  // }));
   return {
-    users: Object.keys(users),
+    users,
   };
 }
 
