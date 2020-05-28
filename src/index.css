@@ -14,6 +14,10 @@ code {
     monospace;
 }
 
+li {
+  list-style: none;
+}
+
 .my-layout {
   max-width: 550px;
   margin: 0 auto;

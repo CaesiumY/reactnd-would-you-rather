@@ -9,8 +9,7 @@ function CardGridLayout({ data, avatarURL, type, children }) {
       style={{
         marginTop: 16,
         border: "1px solid #d4d4d5",
-        borderTop:
-          type === "unanswered" ? "3px solid skyblue" : "3px solid grey",
+        borderTop: type === "answered" ? "3px solid grey" : "3px solid skyblue",
       }}
       type="inner"
       headStyle={{
