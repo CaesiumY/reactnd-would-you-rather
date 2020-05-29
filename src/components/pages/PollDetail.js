@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Radio, Button, Progress, Divider } from "antd";
 import CardGridLayout from "../layout/CardGridLayout";
+import { handleAddAnswer } from "../../actions/questions";
 
 export class PollDetail extends Component {
   state = {
@@ -18,10 +19,14 @@ export class PollDetail extends Component {
 
   handleSubmit = (e) => {
     const { value } = this.state;
-    console.log("value:", value);
-    this.setState({
-      toHome: true,
-    });
+    const { dispatch, qid } = this.props;
+
+    console.log("value:", value, qid);
+    dispatch(handleAddAnswer(qid, value));
+
+    // this.setState({
+    //   toHome: true,
+    // });
   };
 
   render() {
@@ -101,13 +106,13 @@ export class PollDetail extends Component {
           <>
             <Radio.Group onChange={this.onChange} value={value}>
               <Radio
-                value={1}
+                value={"optionOne"}
                 style={{ display: "block", height: "30px", lineHeight: "30px" }}
               >
                 {optionOne.text}
               </Radio>
               <Radio
-                value={2}
+                value={"optionTwo"}
                 style={{ display: "block", height: "30px", lineHeight: "30px" }}
               >
                 {optionTwo.text}
@@ -138,6 +143,7 @@ function mapStateToProps({ users, questions, authedUser }, { location }) {
   const optionTwoCount = question.optionTwo.votes.length;
   const userVote = users[authedUser].answers[qid];
   return {
+    qid,
     question,
     users,
     isVoted,
