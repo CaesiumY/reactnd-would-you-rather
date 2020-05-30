@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import CardGridLayout from "../layout/CardGridLayout";
 import VotedCard from "../VotedCard";
 import UnvotedCard from "../UnvotedCard";
 
 export class PollDetail extends Component {
   render() {
+    if (this.props.question === undefined) {
+      return <Redirect to="/questions/invalid_id" />;
+    }
+
     const { question, users, isVoted, userVote, qid } = this.props;
     const { author, optionOne, optionTwo } = question;
 
@@ -37,8 +42,8 @@ function mapStateToProps({ users, questions, authedUser }, { location }) {
   const qid = location.pathname.split("/")[2];
   const question = questions[qid];
   const isVoted = Object.keys(users[authedUser].answers).includes(qid);
-
   const userVote = users[authedUser].answers[qid];
+
   return {
     qid,
     question,
