@@ -31,6 +31,10 @@ export class NewQuestion extends Component {
     this.props.dispatch(setPage("home"));
   };
 
+  componentDidMount() {
+    this.props.dispatch(setPage("new"));
+  }
+
   render() {
     const { option1, option2, toHome } = this.state;
     const isDisabled = option1 === "" || option2 === "";

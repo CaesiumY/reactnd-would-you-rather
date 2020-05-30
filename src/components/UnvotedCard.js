@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { Radio, Button } from "antd";
@@ -13,7 +12,6 @@ export class UnvotedCard extends Component {
   };
   state = {
     value: "",
-    toHome: false,
   };
 
   onChange = (e) => {
@@ -26,22 +24,13 @@ export class UnvotedCard extends Component {
     const { value } = this.state;
     const { dispatch, qid } = this.props;
 
-    console.log("value:", value, qid);
     dispatch(handleAddAnswer(qid, value));
-
-    // this.setState({
-    //   toHome: true,
-    // });
   };
 
   render() {
     const { optionOne, optionTwo } = this.props;
-    const { toHome, value } = this.state;
+    const { value } = this.state;
     const isDisabled = value === "";
-
-    if (toHome) {
-      return <Redirect to="/"></Redirect>;
-    }
 
     return (
       <>

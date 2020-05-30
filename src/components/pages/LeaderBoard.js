@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 import { Card, Divider } from "antd";
 import { TrophyTwoTone } from "@ant-design/icons";
 import AvatarInCard from "../AvatarInCard";
+import { setPage } from "../../actions/currentPage";
 
 export class LeaderBoard extends Component {
   state = {
     colorSet: ["#fbbd08", "#767676", "#f2711c"],
   };
+
+  componentDidMount() {
+    this.props.dispatch(setPage("leaderboard"));
+  }
 
   render() {
     return (
