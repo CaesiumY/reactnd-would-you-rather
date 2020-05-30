@@ -12,21 +12,27 @@ This repo is a code-along with the first project in the [React Nanodegree progra
 
 <details>
     <summary>Login</summary>
+    <img src="./screenshots/login.png" width="600">
 </details>
 <details>
     <summary>Home - Unanswered</summary>
+    <img src="./screenshots/home_unanswered.png" width="600">
 </details>
 <details>
     <summary>Home - Answered</summary>
+    <img src="./screenshots/home_answered.png" width="600">
 </details>
 <details>
     <summary>Add a New Poll</summary>
+    <img src="./screenshots/add.png" width="600">
 </details>
 <details>
     <summary>LeaderBoard</summary>
+    <img src="./screenshots/leaderboard.png" width="600">
 </details>
 <details>
     <summary>Error Page & Logout</summary>
+    <img src="./screenshots/404_logout.png" width="600">
 </details>
 
 ## 👨‍💻Features
@@ -41,4 +47,4 @@ This repo is a code-along with the first project in the [React Nanodegree progra
 
 ## 📜License
 
-Icons made by [Freepik](https://www.flaticon.com/) from flaticon
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [flaticon](https://www.flaticon.com/)
