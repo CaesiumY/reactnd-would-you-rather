@@ -4,13 +4,16 @@ This repo is a code-along with the first project in the [React Nanodegree progra
 
 ## 📌Table of Contents
 
-- [💻Demo](#demo)
-- [🔰Project Setup](#project-setup)
-- [📷Screenshots](#screenshots)
-- [👨‍💻Features](#features)
-- [📜License](#license)
+- [⚛Udacity React Nanodegree Project - Would You Rather❓](#udacity-react-nanodegree-project---would-you-rather)
+  - [📌Table of Contents](#table-of-contents)
+  - [💻Demo](#demo)
+  - [🔰Project Setup](#project-setup)
+  - [📷Screenshots](#screenshots)
+  - [👨‍💻Features](#features)
+  - [📜License](#license)
+  - [😎Comment from Reviewer](#comment-from-reviewer)
 
-# 💻Demo
+## 💻Demo
 
 Deployed to [Github Pages](https://caesiumy.github.io/reactnd-would-you-rather/#/)
 
@@ -60,3 +63,7 @@ Deployed to [Github Pages](https://caesiumy.github.io/reactnd-would-you-rather/#
 ## 📜License
 
 Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [flaticon](https://www.flaticon.com/)
+
+## 😎Comment from Reviewer
+
+<img src="./screenshots/review.png" width="600">

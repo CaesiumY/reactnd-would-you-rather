@@ -52,7 +52,6 @@ export function handleAddAnswer(qid, answer) {
     dispatch(showLoading());
     return saveQuestionAnswer(authedUser, qid, answer)
       .then(() => {
-        // TODO - need actions
         dispatch(addAnswer(authedUser, qid, answer));
         dispatch(addAnswerToUser(authedUser, qid, answer));
       })
