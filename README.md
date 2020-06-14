@@ -2,6 +2,18 @@
 
 This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
+## 📌Table of Contents
+
+- [💻Demo](#demo)
+- [🔰Project Setup](#project-setup)
+- [📷Screenshots](#screenshots)
+- [👨‍💻Features](#features)
+- [📜License](#license)
+
+# 💻Demo
+
+Deployed to [Github Pages](https://caesiumy.github.io/reactnd-would-you-rather/#/)
+
 ## 🔰Project Setup
 
 - clone the Project - `git clone https://github.com/CaesiumY/reactnd-would-you-rather.git`
