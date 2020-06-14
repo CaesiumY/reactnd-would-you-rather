@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "735e554311fb93b9a6aaa55188728ae4",
+    "revision": "48739c2b5a7eb5dae942cc008eb0ce02",
     "url": "/reactnd-would-you-rather/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactnd-would-you-rather/static/css/2.4c6ee7a4.chunk.css"
   },
   {
-    "revision": "343e57c57673a0147bb0",
+    "revision": "b447d2c8a9359757b4f3",
     "url": "/reactnd-would-you-rather/static/css/main.21306024.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactnd-would-you-rather/static/js/2.de7173c4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "343e57c57673a0147bb0",
-    "url": "/reactnd-would-you-rather/static/js/main.aff73a43.chunk.js"
+    "revision": "b447d2c8a9359757b4f3",
+    "url": "/reactnd-would-you-rather/static/js/main.7f3d28ee.chunk.js"
   },
   {
     "revision": "64ca204376298221c077",
