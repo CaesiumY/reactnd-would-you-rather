@@ -64,6 +64,6 @@ Deployed to [Github Pages](https://caesiumy.github.io/reactnd-would-you-rather/#
 
 Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [flaticon](https://www.flaticon.com/)
 
-## 😎Comment from Reviewer
+## 😎Comment from Reviewer 
 
-<img src="./screenshots/review.png" width="600">
+<img src="./screenshots/review.png">
