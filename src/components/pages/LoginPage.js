@@ -41,7 +41,11 @@ export class LoginPage extends Component {
           }}
         >
           {users[selected] && (
-            <img src={users[selected].avatarURL} width="50%" alt="logo" />
+            <img
+              src={users[selected].avatarURL}
+              width="50%"
+              alt={users[selected].name}
+            />
           )}
 
           <h1>Sign In</h1>
