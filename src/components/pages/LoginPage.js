@@ -101,9 +101,6 @@ function CardTitle() {
 }
 
 function mapStateToProps({ users }) {
-  // const avatars = Object.values(users).map((user) => ({
-  //   [user.id]: user.avatarURL,
-  // }));
   return {
     users,
   };
